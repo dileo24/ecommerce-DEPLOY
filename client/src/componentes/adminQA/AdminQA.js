@@ -14,7 +14,7 @@ const AdminQA = () => {
     console.log(accessToken);
     
     accessToken &&
-      fetch("https://suprasports.up.railway.app/adminQA", {
+      fetch("https://ecommerce-deploy-production.up.railway.app/adminQA", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

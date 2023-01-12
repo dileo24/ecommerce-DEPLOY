@@ -13,7 +13,7 @@ const HistorialUsuario = () => {
   useEffect(() => {
     const fetchUserId = async () => {
       axios
-        .post("https://suprasports.up.railway.app/compras/obtenerId", {
+        .post("https://ecommerce-deploy-production.up.railway.app/compras/obtenerId", {
           User: user.nickname,
         })
         .then((data) => {
@@ -31,7 +31,7 @@ const HistorialUsuario = () => {
 
     const fetchInfo = async (userId) => {
       const respuesta = await axios.post(
-        "https://suprasports.up.railway.app/compras/historial", // deberia enviar el id por parametro, set tipo GET
+        "https://ecommerce-deploy-production.up.railway.app/compras/historial", // deberia enviar el id por parametro, set tipo GET
         {
           clienteId: userId,
         }

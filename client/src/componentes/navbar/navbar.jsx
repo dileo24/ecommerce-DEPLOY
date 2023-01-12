@@ -62,7 +62,7 @@ const Navbar = ({ setPages }) => {
 
   useEffect(() => {
     user &&
-      fetch('https://suprasports.up.railway.app/users', {
+      fetch('https://ecommerce-deploy-production.up.railway.app/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

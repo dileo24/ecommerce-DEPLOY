@@ -61,7 +61,7 @@ const ReviewForm = () => {
       return;
     }
 
-    fetch('https://suprasports.up.railway.app/compras/review', {
+    fetch('https://ecommerce-deploy-production.up.railway.app/compras/review', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

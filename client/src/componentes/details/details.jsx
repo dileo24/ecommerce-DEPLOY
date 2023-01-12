@@ -82,7 +82,7 @@ const Details = () => {
 
     checkForAdminRole();
     if (user) {
-      fetch(`https://suprasports.up.railway.app/favoritos/${user.email}`)
+      fetch(`https://ecommerce-deploy-production.up.railway.app/favoritos/${user.email}`)
         .then((data) => data.json())
         .then((data) => {
           setFavoritos(data.productos);
@@ -93,7 +93,7 @@ const Details = () => {
   }, [id, user, isAuthenticated, getAccessTokenSilently]);
 
   const handleDelete = () => {
-    fetch(`https://suprasports.up.railway.app/favoritos/${clienteId}/${id}`, {
+    fetch(`https://ecommerce-deploy-production.up.railway.app/favoritos/${clienteId}/${id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",

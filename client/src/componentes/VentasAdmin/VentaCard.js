@@ -53,7 +53,7 @@ const VentaCard = ({ data, accessToken }) => {
       didClick: false,
     }));
 
-    fetch(`https://suprasports.up.railway.app/compras/adminSales/${data.purchaseId}`, {
+    fetch(`https://ecommerce-deploy-production.up.railway.app/compras/adminSales/${data.purchaseId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

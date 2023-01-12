@@ -34,7 +34,7 @@ const QAForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch('https://suprasports.up.railway.app/customerQA/', {
+    fetch('https://ecommerce-deploy-production.up.railway.app/customerQA/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

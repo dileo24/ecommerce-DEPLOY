@@ -14,7 +14,7 @@ const UnansweredQuestion = ({ question, accessToken }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://suprasports.up.railway.app/adminQA', {
+    fetch('https://ecommerce-deploy-production.up.railway.app/adminQA', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const UnansweredQuestion = ({ question, accessToken }) => {
   const handleDelete = () => {
     setDidDelete(true);
 
-    fetch(`https://suprasports.up.railway.app/adminQA/${question.questionId}`, {
+    fetch(`https://ecommerce-deploy-production.up.railway.app/adminQA/${question.questionId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

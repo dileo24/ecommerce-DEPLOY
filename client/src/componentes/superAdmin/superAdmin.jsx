@@ -25,7 +25,7 @@ const SuperAdmin = (props) => {
     console.log("Actualizacion de padre", cueParentUpdate, cueChildUpdate);
     const funct = async () => {
       const result = await axios.get(
-        "https://suprasports.up.railway.app/superAdmin/fetchRoles",
+        "https://ecommerce-deploy-production.up.railway.app/superAdmin/fetchRoles",
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -43,7 +43,7 @@ const SuperAdmin = (props) => {
   };
 
   const Delete = async () => {
-    fetch(`https://suprasports.up.railway.app/superAdmin/removeAdmin`, {
+    fetch(`https://ecommerce-deploy-production.up.railway.app/superAdmin/removeAdmin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
