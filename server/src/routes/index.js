@@ -68,7 +68,7 @@ router.post("/pagosMeli", validateAccessToken, async (req, res) => {
   let preference = {
     items: itemsArr,
     back_urls: {
-      success: "https://suprasports.up.railway.app/redirect",
+      success: "https://ecommerce-deploy-production.up.railway.app/redirect",
     },
   };
 
@@ -114,12 +114,12 @@ router.get("/redirect", async (req, res) => {
         );
       });
 
-      axios.post("https://suprasports.up.railway.app/compras", {
+      axios.post("https://ecommerce-deploy-production.up.railway.app/compras", {
         input: datosDestinatario.input,
         email: datosDestinatario.email,
         productos: obj,
       });
-      res.redirect("https://suprasportsclient-production.up.railway.app/");
+      res.redirect("https://ashamed-mountain-production.up.railway.app/");
     }
   } catch (error) {
     res.status(400).send(error.message);
