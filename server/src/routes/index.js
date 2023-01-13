@@ -119,7 +119,7 @@ router.get("/redirect", async (req, res) => {
         email: datosDestinatario.email,
         productos: obj,
       });
-      res.redirect("https://ashamed-mountain-production.up.railway.app/");
+      res.redirect("https://suprasports.vercel.app/");
     }
   } catch (error) {
     res.status(400).send(error.message);
