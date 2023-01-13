@@ -102,7 +102,7 @@
 
 @media (max-width: 768px) {
   .item {
-    width: 70%;
+    width: 60%;
     height: 150px;
     padding: 10px;
     position: relative;
