@@ -9,16 +9,15 @@ import {
   removeAllFromCart,
   removeOneFromCart,
   addOneToCart,
-} from '../../redux/actions/actions';
-import Navbar2 from '../navbar/navBar2';
-import FormCompra from '../formCompra/FormCompra';
+} from "../../redux/actions/actions";
+import Navbar2 from "../navbar/navBar2";
+import FormCompra from "../formCompra/FormCompra";
 
 const Carrito = () => {
-
   const { user, isAuthenticated, loginWithRedirect } = useAuth0();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  const [, setUsuaruioId] = useState('');
+  const [, setUsuaruioId] = useState("");
 
   const { getAccessTokenSilently } = useAuth0();
   const [token, setToken] = useState("");
@@ -36,7 +35,7 @@ const Carrito = () => {
       if (isAuthenticated === true) {
         if (cart.length) {
           const idUsuariodb = await axios.post(
-            'https://ecommerce-deploy-production.up.railway.app/compras/obtenerId',
+            "https://ecommerce-deploy-production.up.railway.app/compras/obtenerId",
             {
               User: user.nickname,
             }
@@ -45,9 +44,8 @@ const Carrito = () => {
           if (idUsuariodb) setUsuaruioId(idUsuariodb.data);
         }
       }
-    }
+    };
     user && user.hasOwnProperty("nickname") && fetchUserId();
-
   }, [user, cart.length, isAuthenticated]);
 
   /* const { isAuthenticated, loginWithRedirect } = useAuth0() */
@@ -83,8 +81,8 @@ const Carrito = () => {
     /* console.log(cart); */
 
     if (!cart.length) return; // manejar mejor la respuesta al intentar comprar con un carrito vacio?
-    fetch('https://ecommerce-deploy-production.up.railway.app/pagosMeli', {
-      method: 'POST',
+    fetch("https://ecommerce-deploy-production.up.railway.app/pagosMeli", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -167,8 +165,11 @@ const Carrito = () => {
             <div className={s.total2}>
               <p>Total: ${totalProd}</p>
             </div>
-            <button className={s.pagar2} onClick={() => setClick(true)}
-              disabled={!cart.length}>
+            <button
+              className={s.pagar2}
+              onClick={() => setClick(true)}
+              disabled={!cart.length}
+            >
               Pagar ahora
             </button>
           </div>

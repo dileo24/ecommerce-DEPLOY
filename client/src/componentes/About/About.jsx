@@ -17,11 +17,13 @@ export default function About() {
           <div className={style.card}>
             <div className={style.card_image}></div>
             <div className={style.card_description}>
-              <p className={style.text_title}>
-                Carlos
-                <br />
-                Islas
-              </p>
+              <div className={style.title}>
+                <p className={style.text_title}>
+                  Carlos
+                  <br />
+                  Islas
+                </p>
+              </div>
               <p className={style.text_body}>
                 <div className={style.contacto}>
                   <a
@@ -46,11 +48,13 @@ export default function About() {
           <div className={style.card}>
             <div className={style.card_image2}></div>
             <div className={style.card_description}>
-              <p className={style.text_title}>
-                Alejandro
-                <br />
-                Mocse
-              </p>
+              <div className={style.title}>
+                <p className={style.text_title}>
+                  Alejandro
+                  <br />
+                  Mocse
+                </p>
+              </div>
               <p className={style.text_body}>
                 <div className={style.contacto}>
                   <a
@@ -75,11 +79,13 @@ export default function About() {
           <div className={style.card}>
             <div className={style.card_image3}></div>
             <div className={style.card_description}>
-              <p className={style.text_title}>
-                Carlos
-                <br />
-                Medero
-              </p>
+              <div className={style.title}>
+                <p className={style.text_title}>
+                  Carlos
+                  <br />
+                  Medero
+                </p>
+              </div>
               <p className={style.text_body}>
                 <div className={style.contacto}>
                   <a
@@ -135,11 +141,13 @@ export default function About() {
           <div className={style.card}>
             <div className={style.card_image5}></div>
             <div className={style.card_description}>
-              <p className={style.text_title}>
-                Cesar
-                <br />
-                Zegarra{" "}
-              </p>
+              <div className={style.title}>
+                <p className={style.text_title}>
+                  Cesar
+                  <br />
+                  Zegarra{" "}
+                </p>
+              </div>
               <p className={style.text_body}>
                 <div className={style.contacto}>
                   <a
@@ -164,11 +172,13 @@ export default function About() {
           <div className={style.card}>
             <div className={style.card_image6}></div>
             <div className={style.card_description}>
-              <p className={style.text_title}>
-                Belisario
-                <br />
-                Davalos{" "}
-              </p>
+              <div className={style.title}>
+                <p className={style.text_title}>
+                  Belisario
+                  <br />
+                  Davalos{" "}
+                </p>
+              </div>
               <p className={style.text_body}>
                 <div className={style.contacto}>
                   <a
