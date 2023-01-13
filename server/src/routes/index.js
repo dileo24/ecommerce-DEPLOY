@@ -18,14 +18,14 @@ const { validateAccessToken } = require("./middleware/validateAccessToken");
 
 router.use(express.json());
 
-router.use('/products', productRouter);
-router.use('/users', userRouter);
-router.use('/customerQA', customerQARouter);
-router.use('/adminQA', adminQARouter);
-router.use('/category', categoryRouter);
-router.use('/favoritos', favoritosRouter);
-router.use('/compras', compraRouter);
-router.use('/superAdmin', superAdminRouter);
+router.use("/products", productRouter);
+router.use("/users", userRouter);
+router.use("/customerQA", customerQARouter);
+router.use("/adminQA", adminQARouter);
+router.use("/category", categoryRouter);
+router.use("/favoritos", favoritosRouter);
+router.use("/compras", compraRouter);
+router.use("/superAdmin", superAdminRouter);
 
 mercadopago.configure({
   access_token:
@@ -57,8 +57,8 @@ router.post("/pagosMeli", validateAccessToken, async (req, res) => {
       itemsArr.push({
         id: item.id,
         title: item.nombre,
-        currency_id: 'ARS',
-        picture_url: item.URL[0],
+        currency_id: "ARS",
+        picture_url: item.URL,
         quantity: items[0].cantidad,
         unit_price: parseInt(item.precio),
       })

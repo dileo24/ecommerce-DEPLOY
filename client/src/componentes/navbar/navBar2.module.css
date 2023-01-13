@@ -92,7 +92,7 @@
 }
 
 .profileMenu summary:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100px;
   height: 120%;
@@ -279,7 +279,7 @@
   .backHome {
     position: absolute;
     left: 5%;
-    top: 55%;
+    top: 24%;
   }
 
   .black {

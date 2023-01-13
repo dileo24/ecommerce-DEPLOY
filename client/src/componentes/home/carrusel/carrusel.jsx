@@ -1,31 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption
-} from 'reactstrap';
-import style from './carrusel.module.css'
+  CarouselCaption,
+} from "reactstrap";
+import style from "./carrusel.module.css";
+import remeras2 from "./remeras.jpg";
 const items = [
   {
     src: "https://img.freepik.com/foto-gratis/repartidor-tiro-medio_23-2149035872.jpg?w=2000",
     // altText: 'ENVIOS A TODO EL PAIS',
-    caption: 'ENVIOS A TODO EL PAIS',
-    caption2:'PAGA HASTA EN 24 CUOTAS'
+    caption: "ENVIOS A TODO EL PAIS",
+    caption2: "PAGA HASTA EN 24 CUOTAS",
   },
   {
-    src: 'https://blog.printsome.es/wp-content/uploads/sites/3/camisetas-al-por-mayor-header.jpg',
+    src: remeras2,
     // altText: 'LOS MEJORES PRODUCTOS DE CALIDAD',
-    caption: 'LOS MEJORES PRODUCTOS DE CALIDAD',
-    caption2:'LOS ENCONTRAS EN SUPRA SPORTS'
+    caption: "LOS MEJORES PRODUCTOS DE CALIDAD",
+    caption2: "LOS ENCONTRAS EN SUPRA SPORTS",
   },
   {
-    src: 'https://uvn-brightspot.s3.amazonaws.com/assets/vixes/p/pareja-sentada-en-sofa-9.jpg',
+    src: "https://uvn-brightspot.s3.amazonaws.com/assets/vixes/p/pareja-sentada-en-sofa-9.jpg",
     // altText: 'TODO DESDE LA COMODIDAD DE TU CASA',
-    caption: 'TODO DESDE LA COMODIDAD DE TU CASA',
-    caption2:'SUPRA SPORTS'
-  }
+    caption: "TODO DESDE LA COMODIDAD DE TU CASA",
+    caption2: "SUPRA SPORTS",
+  },
 ];
 
 class Carrusel extends Component {
@@ -49,13 +50,19 @@ class Carrusel extends Component {
 
   next() {
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
+    const nextIndex =
+      this.state.activeIndex === items.length - 1
+        ? 0
+        : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
   }
 
   previous() {
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
+    const nextIndex =
+      this.state.activeIndex === 0
+        ? items.length - 1
+        : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   }
 
@@ -69,16 +76,17 @@ class Carrusel extends Component {
 
     const slides = items.map((item) => {
       return (
-      
         <CarouselItem
           onExiting={this.onExiting}
           onExited={this.onExited}
           key={item.src}
         >
-          <img src={item.src} alt={item.altText}  className={style.img}/>
-          <CarouselCaption captionText={item.caption2} captionHeader={item.caption} />
+          <img src={item.src} alt={item.altText} className={style.img} />
+          <CarouselCaption
+            captionText={item.caption2}
+            captionHeader={item.caption}
+          />
         </CarouselItem>
-      
       );
     });
 
@@ -88,15 +96,25 @@ class Carrusel extends Component {
         next={this.next}
         previous={this.previous}
       >
-        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+        <CarouselIndicators
+          items={items}
+          activeIndex={activeIndex}
+          onClickHandler={this.goToIndex}
+        />
         {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+        <CarouselControl
+          direction="prev"
+          directionText="Previous"
+          onClickHandler={this.previous}
+        />
+        <CarouselControl
+          direction="next"
+          directionText="Next"
+          onClickHandler={this.next}
+        />
       </Carousel>
     );
   }
 }
 
-
 export default Carrusel;
-

@@ -39,7 +39,7 @@
 }
 
 .submit-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -102,7 +102,7 @@
     height: 25px;
     width: 220px;
     position: absolute;
-    left: 17%;
+    left: 14%;
     top: -100%;
   }
 
@@ -110,7 +110,7 @@
     height: 25px;
     width: 220px;
     position: absolute;
-    left: 17%;
+    left: 14%;
     top: 50%;
   }
 
@@ -118,7 +118,7 @@
     padding: 5px 15px;
     width: 220px;
     position: absolute;
-    top: 65%;
+    top: 70%;
   }
 
   .form-newuser {
