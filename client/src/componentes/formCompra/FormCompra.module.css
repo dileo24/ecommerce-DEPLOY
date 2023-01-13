@@ -70,7 +70,7 @@
 }
 
 .publicar button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -103,9 +103,9 @@
     width: 70%;
   }
 
-  .inputI {
+  /* .inputI {
     border: 2px solid yellow;
-  }
+  } */
 
   .inputI label {
     margin-left: 15px;

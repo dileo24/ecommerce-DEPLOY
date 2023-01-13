@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
 
-.conteiner{
+.conteiner {
   width: 630px;
   height: 180px;
 }
@@ -13,7 +13,6 @@
   display: flex;
   align-items: center;
   position: relative;
-  
 }
 
 .itemImg {
@@ -27,31 +26,30 @@
   float: left;
 }
 
-.info{
+.info {
   width: 300px;
   height: 150px;
   display: flex;
   flex-direction: column;
-  
 }
 
-.nombre{
-  font-family:  Arial, Helvetica, sans-serif;
+.nombre {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 500;
   color: black;
   margin-top: 30px;
 }
 
-.talle{
-  font-family:  Arial, Helvetica, sans-serif;
+.talle {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 500;
   color: black;
 }
 
-.precio{
-  font-family:  Arial, Helvetica, sans-serif;
+.precio {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: bold;
   margin-left: 35px;
@@ -59,13 +57,12 @@
   float: left;
 }
 
-.precioTitle{
-  font-family:  Arial, Helvetica, sans-serif;
+.precioTitle {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   margin-left: 35px;
   color: black;
 }
-
 
 .itemm button {
   background-color: rgba(255, 62, 62, 0.966);
@@ -105,7 +102,7 @@
 
 @media (max-width: 768px) {
   .item {
-    width: 95%;
+    width: 70%;
     height: 150px;
     padding: 10px;
     position: relative;
