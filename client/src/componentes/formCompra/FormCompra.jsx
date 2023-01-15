@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import style from './FormCompra.module.css';
-import { useAuth0 } from '@auth0/auth0-react';
-import Navbar2 from '../navbar/navBar2';
+import React, { useState } from "react";
+import style from "./FormCompra.module.css";
+import { useAuth0 } from "@auth0/auth0-react";
+import Navbar2 from "../navbar/navBar2";
 
 export default function FormCompra({ handle }) {
   const { user } = useAuth0();
-  console.log(user.email);
+  /* console.log(user.email); */
 
   const [input, setInput] = useState({
     ciudad: "",

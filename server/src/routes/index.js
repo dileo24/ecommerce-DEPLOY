@@ -43,6 +43,7 @@ let datosDestinatario = { input: "", email: "", token: "" };
 router.post("/pagosMeli", validateAccessToken, async (req, res) => {
   let items = req.body.items;
   let { input, email: email, token } = req.body;
+  console.log(req.body);
 
   datosDestinatario.input = input;
   datosDestinatario.email = email;
