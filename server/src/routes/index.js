@@ -40,67 +40,70 @@ let obj = {};
 // };
 let datosDestinatario = { input: "", email: "", token: "" };
 
-router.post("/pagosMeli", validateAccessToken, async (req, res) => {
-  let items = req.body.items;
-  let { input, email: email, token } = req.body;
-  console.log(req.body);
+router.post(
+  "/pagosMeli",
+  /* validateAccessToken, */ async (req, res) => {
+    let items = req.body.items;
+    let { input, email: email, token } = req.body;
+    console.log(req.body);
 
-  datosDestinatario.input = input;
-  datosDestinatario.email = email;
-  datosDestinatario.token = token;
+    datosDestinatario.input = input;
+    datosDestinatario.email = email;
+    datosDestinatario.token = token;
 
-  let idUsuario = req.body.idUsuario;
+    let idUsuario = req.body.idUsuario;
 
-  // obj = items
-  let itemsArr = [];
-  if (items[0].stock > 0) {
-    items.forEach((item) =>
-      itemsArr.push({
-        id: item.id,
-        title: item.nombre,
-        currency_id: "ARS",
-        picture_url: item.URL,
-        quantity: items[0].cantidad,
-        unit_price: parseInt(item.precio),
+    // obj = items
+    let itemsArr = [];
+    if (items[0].stock > 0) {
+      items.forEach((item) =>
+        itemsArr.push({
+          id: item.id,
+          title: item.nombre,
+          currency_id: "ARS",
+          picture_url: item.URL,
+          quantity: items[0].cantidad,
+          unit_price: parseInt(item.precio),
+        })
+      );
+    }
+
+    let preference = {
+      items: itemsArr,
+      back_urls: {
+        success: "https://ecommerce-deploy-production.up.railway.app/redirect",
+      },
+    };
+
+    obj = items;
+
+    // GuardarComprasDB.clienteId = idUsuario;
+
+    // GuardarComprasDB.clienteId = idUsuario;
+
+    // let arr = [];
+
+    // items.forEach((elem) => {
+    //   const obj = {};
+    //   (obj.prodId = elem.id), (obj.cantidad = elem.cantidad);
+    //   arr.push(obj);
+    // });
+
+    // GuardarComprasDB.productos = arr;
+
+    // console.log(obj);
+    // console.log(GuardarComprasDB);
+
+    mercadopago.preferences
+      .create(preference)
+      .then(function (response) {
+        res.json(response.body.init_point);
       })
-    );
+      .catch(function (error) {
+        console.log(error);
+      });
   }
-
-  let preference = {
-    items: itemsArr,
-    back_urls: {
-      success: "https://ecommerce-deploy-production.up.railway.app/redirect",
-    },
-  };
-
-  obj = items;
-
-  // GuardarComprasDB.clienteId = idUsuario;
-
-  // GuardarComprasDB.clienteId = idUsuario;
-
-  // let arr = [];
-
-  // items.forEach((elem) => {
-  //   const obj = {};
-  //   (obj.prodId = elem.id), (obj.cantidad = elem.cantidad);
-  //   arr.push(obj);
-  // });
-
-  // GuardarComprasDB.productos = arr;
-
-  // console.log(obj);
-  // console.log(GuardarComprasDB);
-
-  mercadopago.preferences
-    .create(preference)
-    .then(function (response) {
-      res.json(response.body.init_point);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-});
+);
 router.get("/redirect", async (req, res) => {
   let { status } = req.query;
   try {
