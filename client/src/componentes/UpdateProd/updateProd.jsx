@@ -81,20 +81,20 @@ export default function UpdateProd() {
 
   useEffect(() => {
     dispatch(getDetails(id));
-  }, [dispatch, id])
+  }, [dispatch, id]);
 
   const history = useHistory();
   const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
     id: id,
     nombre: "",
-    URL: '',
+    URL: "",
     precio: "",
     color: "",
     talla: "",
     marca: "",
     stock: "",
-    categoria: ""
+    categoria: "",
   });
 
   const handlerChange = (e) => {
@@ -103,16 +103,19 @@ export default function UpdateProd() {
       [e.target.name]: e.target.value,
     });
     setErrors(
-      validate({
-        ...input,
-        [e.target.name]: e.target.value,
-      }, prods
-      ));
+      validate(
+        {
+          ...input,
+          [e.target.name]: e.target.value,
+        },
+        prods
+      )
+    );
   };
 
   const handlerSelectCateg = (e) => {
     if (!input.categoria.includes(e.target.value)) {
-      setInput({ ...input, categoria: e.target.value })
+      setInput({ ...input, categoria: e.target.value });
     }
   };
 
@@ -125,24 +128,27 @@ export default function UpdateProd() {
     setInput({
       id: id,
       nombre: "",
-      URL: '',
+      URL: "",
       precio: "",
       color: "",
       talla: "",
       marca: "",
       stock: "",
-      categoria: ""
+      categoria: "",
     });
     history.push("/");
   };
-  console.log(details);
+  /* console.log(details); */
 
   return (
     <div>
       <Navbar2 />
       <div className={style.content}>
         <h1>Editor de Productos</h1>
-        <h5>(Deje el cuadro vacío en caso de querer el valor previamente establecido.)</h5>
+        <h5>
+          (Deje el cuadro vacío en caso de querer el valor previamente
+          establecido.)
+        </h5>
 
         {details.length && (
           <div className={style.forms}>
@@ -156,7 +162,9 @@ export default function UpdateProd() {
                   value={input.nombre}
                   onChange={(e) => handlerChange(e)}
                 ></input>
-                {errors.nombre && <p className={style.errors}>{errors.nombre}</p>}
+                {errors.nombre && (
+                  <p className={style.errors}>{errors.nombre}</p>
+                )}
               </div>
 
               <div className={style.inputI}>
@@ -168,9 +176,13 @@ export default function UpdateProd() {
                   name="URL"
                   onChange={(e) => handlerChange(e)}
                 ></input>
-                {errors.URL
-                  ? (<p className={style.errors}>{errors.URL}</p>)
-                  : (input.URL) ? (<img src={input.URL} alt='img'></img>) : ("")}
+                {errors.URL ? (
+                  <p className={style.errors}>{errors.URL}</p>
+                ) : input.URL ? (
+                  <img src={input.URL} alt="img"></img>
+                ) : (
+                  ""
+                )}
               </div>
 
               <div className={style.inputI}>
@@ -182,7 +194,9 @@ export default function UpdateProd() {
                   name="precio"
                   onChange={(e) => handlerChange(e)}
                 ></input>
-                {errors.precio && <p className={style.errors}>{errors.precio}</p>}
+                {errors.precio && (
+                  <p className={style.errors}>{errors.precio}</p>
+                )}
               </div>
 
               <div className={style.inputI}>
@@ -254,17 +268,14 @@ export default function UpdateProd() {
                 </Link>
               </div>
 
-
               <div className={style.publicar}>
-                <button type="submit">
-                  Publicar Producto!
-                </button>
+                <button type="submit">Publicar Producto!</button>
               </div>
             </form>
           </div>
         )}
-      </div >
+      </div>
       <Footer />
-    </div >
+    </div>
   );
-};
+}
