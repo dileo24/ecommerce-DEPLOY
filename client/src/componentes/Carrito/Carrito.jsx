@@ -81,7 +81,7 @@ const Carrito = () => {
     /* console.log(cart); */
 
     if (!cart.length) return; // manejar mejor la respuesta al intentar comprar con un carrito vacio?
-    /* fetch("https://ecommerce-deploy-production.up.railway.app/pagosMeli", {
+    fetch("https://ecommerce-deploy-production.up.railway.app/pagosMeli", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -94,8 +94,8 @@ const Carrito = () => {
         if (data.error) console.log(data); // manejar caso de error
         window.open(data, "_self");
         dispatch(clearCart());
-      }); */
-    console.log(cart, input, email, token);
+      });
+    /* console.log(cart, input, email, token); */
   };
 
   let totalProd = 0;

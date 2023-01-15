@@ -88,7 +88,7 @@ export default function FormCompra({ handle }) {
             <div className={style.inputI}>
               <label>Código Postal </label>
               <input
-                type="number"
+                type="text"
                 value={input.cp}
                 name="cp"
                 onChange={(e) => handlerChange(e)}
