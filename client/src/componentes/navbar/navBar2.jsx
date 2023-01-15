@@ -13,9 +13,9 @@ import {
   getFavorites,
   getProducts,
   importUser,
-} from '../../redux/actions/actions.js';
-import { useAuth0 } from '@auth0/auth0-react';
-import jwt_decode from 'jwt-decode';
+} from "../../redux/actions/actions.js";
+import { useAuth0 } from "@auth0/auth0-react";
+import jwt_decode from "jwt-decode";
 
 const Navbar2 = () => {
   const dispatch = useDispatch();
@@ -43,6 +43,7 @@ const Navbar2 = () => {
         const accessToken = await getAccessTokenSilently();
         let decoded = jwt_decode(accessToken);
 
+        console.log(decoded);
         if (decoded.permissions.includes("read:admin")) {
           // verificación principalmente estética. No brinda seguridad.
           setIsAdmin(true);
@@ -128,13 +129,13 @@ const Navbar2 = () => {
                         <div className={style.btnAdmin}>
                           <NavLink
                             to="/superAdmin"
-                            style={{ textDecoration: 'none' }}
+                            style={{ textDecoration: "none" }}
                           >
                             <button>Gestionar Permisos de Admin</button>
                           </NavLink>
                         </div>
                       ) : (
-                        ''
+                        ""
                       )}
                     </div>
                   ) : (
@@ -186,13 +187,19 @@ const Navbar2 = () => {
               ) : (
                 <>
                   <div className={style.carro}>
-                    <div className={style.btn} onClick={() => loginWithRedirect()}>
+                    <div
+                      className={style.btn}
+                      onClick={() => loginWithRedirect()}
+                    >
                       {carrito.length > 0 && <h6>{carrito.length}</h6>}
                       <img src={shopping} alt=""></img>
                     </div>
                   </div>
                   <div>
-                    <div className={style.btn} onClick={() => loginWithRedirect()}>
+                    <div
+                      className={style.btn}
+                      onClick={() => loginWithRedirect()}
+                    >
                       <img src={heart} alt=""></img>
                     </div>
                   </div>
