@@ -55,8 +55,8 @@ productRouter.get("/:id", async (req, res) => {
 // admins only
 productRouter.post(
   "/",
-  /* validateAccessToken,
-  validateAdmin, */
+  validateAccessToken,
+  validateAdmin,
   async (req, res) => {
     try {
       const data = req.body;
@@ -76,8 +76,8 @@ productRouter.post(
 // admins only
 productRouter.delete(
   "/:id",
-  /* validateAccessToken,
-  validateAdmin, */
+  validateAccessToken,
+  validateAdmin,
   async (req, res) => {
     try {
       const { id } = req.params;
@@ -94,8 +94,8 @@ productRouter.delete(
 // admins only
 productRouter.put(
   "/:id",
-  /* validateAccessToken,
-  validateAdmin, */
+  validateAccessToken,
+  validateAdmin,
   async (req, res) => {
     const data = req.body;
     const { id } = req.params;
