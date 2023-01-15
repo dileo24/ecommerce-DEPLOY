@@ -8,8 +8,8 @@ const { errorHandler } = require("./middleware/error.middleware");
 
 productRouter.get("/", async (req, res) => {
   try {
-    await getProductsFireBase()
-    await getProductsFireBase()
+    await getProductsFireBase();
+    await getProductsFireBase();
     res.status(200).json(await getDataBaseProducts());
     // res.status(200).json(await getDataBaseProducts());
   } catch (error) {
@@ -55,8 +55,8 @@ productRouter.get("/:id", async (req, res) => {
 // admins only
 productRouter.post(
   "/",
-  validateAccessToken,
-  validateAdmin,
+  /* validateAccessToken,
+  validateAdmin, */
   async (req, res) => {
     try {
       const data = req.body;
@@ -76,8 +76,8 @@ productRouter.post(
 // admins only
 productRouter.delete(
   "/:id",
-  validateAccessToken,
-  validateAdmin,
+  /* validateAccessToken,
+  validateAdmin, */
   async (req, res) => {
     try {
       const { id } = req.params;
@@ -94,41 +94,43 @@ productRouter.delete(
 // admins only
 productRouter.put(
   "/:id",
-  validateAccessToken,
-  validateAdmin,
+  /* validateAccessToken,
+  validateAdmin, */
   async (req, res) => {
     const data = req.body;
     const { id } = req.params;
     const { categoria } = req.body;
 
     const producto = await Producto.findOne({
-      where: { id: id }
+      where: { id: id },
     });
     try {
-      let productoUp = await Producto.update({
-        nombre: data.nombre || producto.nombre,
-        URL: data.URL || producto.URL,
-        precio: data.precio || producto.precio,
-        color: data.color || producto.color,
-        talla: data.talla || producto.talla,
-        marca: data.marca || producto.marca,
-        stock: data.stock || producto.stock,
-      },
+      let productoUp = await Producto.update(
+        {
+          nombre: data.nombre || producto.nombre,
+          URL: data.URL || producto.URL,
+          precio: data.precio || producto.precio,
+          color: data.color || producto.color,
+          talla: data.talla || producto.talla,
+          marca: data.marca || producto.marca,
+          stock: data.stock || producto.stock,
+        },
         { where: { id: id } }
       );
       if (categoria) {
         const DatabaseCategory = await Categoria.findAll({
           where: { nombre: categoria },
         });
-        let newProd = await Producto.findOne({ where: { id: id } })
+        let newProd = await Producto.findOne({ where: { id: id } });
 
         await newProd.setCategoria(DatabaseCategory);
         console.log(newProd);
-      }+
-      res.status(200).send("el producto se modificó");
+      }
+      +res.status(200).send("el producto se modificó");
     } catch (error) {
       res.status(404).send(error.message);
     }
-  });
+  }
+);
 
 module.exports = productRouter;

@@ -14,9 +14,9 @@ const { validateAccessToken } = require("./middleware/validateAccessToken");
 
 superAdminRouter.post(
   "/addAdminRole",
-  validateAccessToken,
+  /* validateAccessToken,
   validateSuperAdmin,
-  fetchManagementToken,
+  fetchManagementToken, */
   async (req, res) => {
     try {
       const { managementToken } = res.locals;
@@ -53,9 +53,9 @@ superAdminRouter.post(
 
 superAdminRouter.post(
   "/removeAdmin",
-  validateAccessToken,
+  /* validateAccessToken,
   validateSuperAdmin,
-  fetchManagementToken,
+  fetchManagementToken, */
   async (req, res) => {
     console.log("HERE!");
     try {
@@ -92,9 +92,9 @@ superAdminRouter.post(
 
 superAdminRouter.get(
   "/fetchRoles",
-  validateAccessToken,
+  /*  validateAccessToken,
   validateSuperAdmin,
-  fetchManagementToken,
+  fetchManagementToken, */
   async (req, res) => {
     try {
       const { managementToken } = res.locals;
@@ -129,10 +129,10 @@ superAdminRouter.get(
 // Nota: Mejorable. Innecesario hacerlo a partir de admins. Sería mejor traerlos directamente a partir de endpoint Auth0 /getUsers y verificar permissions admin
 superAdminRouter.get(
   "/fetchNonAdmins",
-  validateAccessToken,
+  /* validateAccessToken,
   validateSuperAdmin,
   fetchManagementToken,
-  fetchAdmins, // los trae de auth0
+  fetchAdmins, */ // los trae de auth0
   async (req, res) => {
     try {
       const { admins } = res.locals;
@@ -192,9 +192,9 @@ superAdminRouter.get(
 
 superAdminRouter.get(
   "/getUsers",
-  validateAccessToken,
+  /* validateAccessToken,
   validateSuperAdmin,
-  fetchManagementToken,
+  fetchManagementToken, */
   async (req, res) => {
     try {
       let { blocked } = req.query;
@@ -260,9 +260,9 @@ superAdminRouter.get(
 
 superAdminRouter.post(
   "/blockUser",
-  validateAccessToken,
+  /* validateAccessToken,
   validateSuperAdmin,
-  fetchManagementToken,
+  fetchManagementToken, */
   async (req, res) => {
     try {
       const { managementToken } = res.locals;

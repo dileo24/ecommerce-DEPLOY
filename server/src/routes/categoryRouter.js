@@ -16,8 +16,8 @@ categoryRouter.get("/", async (req, res) => {
 
 categoryRouter.post(
   "/",
-  validateAccessToken,
-  validateAdmin,
+  /* validateAccessToken,
+  validateAdmin, */
   async (req, res) => {
     try {
       let nombre = req.body;
@@ -31,8 +31,8 @@ categoryRouter.post(
 
 categoryRouter.delete(
   "/:nombre",
-  validateAccessToken,
-  validateAdmin,
+  /* validateAccessToken,
+  validateAdmin, */
   async (req, res) => {
     try {
       let { nombre } = req.params;

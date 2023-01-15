@@ -150,8 +150,8 @@ compraRouter.post("/historial", async (req, res) => {
 
 compraRouter.get(
   "/adminSales/",
-  validateAccessToken,
-  validateAdmin,
+  /* validateAccessToken,
+  validateAdmin, */
   async (req, res) => {
     try {
       const { order, enviado } = req.query; // aceptar query para traer en orden ASC o DESC, también enviado false o true. TODOS LOS QUERIES VIENEN COMO STRING
@@ -225,8 +225,8 @@ compraRouter.get(
 
 compraRouter.put(
   "/adminSales/:purchaseId",
-  validateAccessToken,
-  validateAdmin,
+  /* validateAccessToken,
+  validateAdmin, */
   async (req, res) => {
     try {
       const { purchaseId } = req.params;
