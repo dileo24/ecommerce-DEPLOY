@@ -21,7 +21,7 @@ const VentasAdmin = () => {
   useEffect(() => {
     accessToken &&
       fetch(
-        `https://ecommerce-deploy-production.up.railway.app/compras/adminSales?order=${filters.order}&enviado=${filters.show}`,
+        `https://sevidor-pf.onrender.com/compras/adminSales?order=${filters.order}&enviado=${filters.show}`,
         {
           method: "GET",
           headers: {

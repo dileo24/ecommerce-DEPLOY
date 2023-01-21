@@ -71,7 +71,7 @@ router.post(
     let preference = {
       items: itemsArr,
       back_urls: {
-        success: "https://ecommerce-deploy-production.up.railway.app/redirect",
+        success: "https://sevidor-pf.onrender.com/redirect",
       },
     };
 
@@ -118,7 +118,7 @@ router.get("/redirect", async (req, res) => {
         );
       });
 
-      axios.post("https://ecommerce-deploy-production.up.railway.app/compras", {
+      axios.post("https://sevidor-pf.onrender.com/compras", {
         input: datosDestinatario.input,
         email: datosDestinatario.email,
         productos: obj,

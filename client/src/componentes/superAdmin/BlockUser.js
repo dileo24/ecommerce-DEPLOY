@@ -10,10 +10,11 @@ const BlockUser = ({ accessToken, block, handler, cue }) => {
   };
 
   // ruta para traer lista de users => block === true? trae usuarios sin bloquear : trae usuarios bloqueados
-  const getUsersUrl = "https://ecommerce-deploy-production.up.railway.app/superAdmin/getUsers";
+  const getUsersUrl = "https://sevidor-pf.onrender.com/superAdmin/getUsers";
 
   // ruta para bloquear y desbloquear => block === true? bloquea usuario enviado : desbloquea usuario enviado
-  const postBlockedUserUrl = "https://ecommerce-deploy-production.up.railway.app/superAdmin/blockUser";
+  const postBlockedUserUrl =
+    "https://sevidor-pf.onrender.com/superAdmin/blockUser";
 
   const [users, setUsers] = useState([]);
   const [blockedUser, setBlockedUser] = useState({});

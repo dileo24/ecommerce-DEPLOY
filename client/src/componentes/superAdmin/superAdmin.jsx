@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import Navbar2 from '../navbar/navBar2.jsx';
-import axios from 'axios';
-import style from './superAdmin.module.css';
-import { useValidateUser } from '../../customHooks/validate-user.js';
-import AddAdmin from './AddAdmin.js';
-import BlockUser from './BlockUser.js';
+import React, { useEffect, useState } from "react";
+import Navbar2 from "../navbar/navBar2.jsx";
+import axios from "axios";
+import style from "./superAdmin.module.css";
+import { useValidateUser } from "../../customHooks/validate-user.js";
+import AddAdmin from "./AddAdmin.js";
+import BlockUser from "./BlockUser.js";
 
 // import Admins from './Admins.j'
 // import { Link } from "react-router-dom";
@@ -25,7 +25,7 @@ const SuperAdmin = (props) => {
     console.log("Actualizacion de padre", cueParentUpdate, cueChildUpdate);
     const funct = async () => {
       const result = await axios.get(
-        "https://ecommerce-deploy-production.up.railway.app/superAdmin/fetchRoles",
+        "https://sevidor-pf.onrender.com/superAdmin/fetchRoles",
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -43,14 +43,17 @@ const SuperAdmin = (props) => {
   };
 
   const Delete = async () => {
-    fetch(`https://ecommerce-deploy-production.up.railway.app/superAdmin/removeAdmin`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify(deleteAdmins),
-    })
+    fetch(
+      `https://ecommerce-deploy-production.up.railway.app/superAdmin/removeAdmin`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify(deleteAdmins),
+      }
+    )
       .then((data) => data.json())
       .then(() =>
         setTimeout(() => {
@@ -128,7 +131,7 @@ const SuperAdmin = (props) => {
           </div>
         </>
       ) : (
-        'Sólo disponible para usuarios con role de Super Admin'
+        "Sólo disponible para usuarios con role de Super Admin"
       )}
     </>
   );

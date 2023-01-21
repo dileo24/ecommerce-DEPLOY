@@ -12,9 +12,9 @@ const AdminQA = () => {
 
   useEffect(() => {
     console.log(accessToken);
-    
+
     accessToken &&
-      fetch("https://ecommerce-deploy-production.up.railway.app/adminQA", {
+      fetch("https://sevidor-pf.onrender.com/adminQA", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

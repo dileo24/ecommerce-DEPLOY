@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import style from './Compras.module.css';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import style from "./Compras.module.css";
+import { Link, NavLink } from "react-router-dom";
 
 const Compras = (props) => {
   const { enviado } = props;
@@ -11,7 +11,7 @@ const Compras = (props) => {
   useEffect(() => {
     if (!clienteId || !productId) return;
     fetch(
-      `https://ecommerce-deploy-production.up.railway.app/compras/review-match?clienteId=${clienteId}&productoId=${productId}`
+      `https://sevidor-pf.onrender.com/compras/review-match?clienteId=${clienteId}&productoId=${productId}`
     )
       .then((data) => data.json())
       .then((data) => {
@@ -35,7 +35,7 @@ const Compras = (props) => {
       <div className={style.textCont}>
         <NavLink
           to={`/details/${productId}`}
-          style={{ textDecoration: 'none' }}
+          style={{ textDecoration: "none" }}
         >
           <h4>{props.nombre}</h4>
         </NavLink>
@@ -48,15 +48,15 @@ const Compras = (props) => {
         {enviado && !didReview ? (
           <Link
             to={{
-              pathname: '/review-form',
+              pathname: "/review-form",
               state: { producto: props, clienteId },
             }}
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: "none" }}
           >
             <button className={style.btnReview}>Dejar reseña</button>
           </Link>
         ) : (
-          ''
+          ""
         )}
       </div>
     </div>

@@ -66,7 +66,7 @@ const Details = () => {
         setToken(accessToken);
         let decoded = jwt_decode(accessToken);
 
-        if (decoded.permissions.includes('read:admin')) {
+        if (decoded.permissions.includes("read:admin")) {
           // verificación principalmente estética. No brinda seguridad.
           setIsAdmin(true);
         }
@@ -82,7 +82,7 @@ const Details = () => {
 
     checkForAdminRole();
     if (user) {
-      fetch(`https://ecommerce-deploy-production.up.railway.app/favoritos/${user.email}`)
+      fetch(`https://sevidor-pf.onrender.com/favoritos/${user.email}`)
         .then((data) => data.json())
         .then((data) => {
           setFavoritos(data.productos);
@@ -93,7 +93,7 @@ const Details = () => {
   }, [id, user, isAuthenticated, getAccessTokenSilently]);
 
   const handleDelete = () => {
-    fetch(`https://ecommerce-deploy-production.up.railway.app/favoritos/${clienteId}/${id}`, {
+    fetch(`https://sevidor-pf.onrender.com/favoritos/${clienteId}/${id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
@@ -134,10 +134,11 @@ const Details = () => {
 
   const handleSubmit = (id) => {
     if (actualInCart.length === 0) {
-      dispatch(addToCart(id)) && toast.success("El producto fue añadido al carrito.");
+      dispatch(addToCart(id)) &&
+        toast.success("El producto fue añadido al carrito.");
     } else {
       dispatch(removeOneFromCart(id));
-      toast.error('El producto se quitó del carrito.');
+      toast.error("El producto se quitó del carrito.");
     }
   };
 
@@ -201,7 +202,11 @@ const Details = () => {
                         </div>
                       </>
                     ) : (
-                      <div className={s.fav} /* onClick={toast.error('Necesita iniciar sesión para guardar en favoritos.')} */>
+                      <div
+                        className={
+                          s.fav
+                        } /* onClick={toast.error('Necesita iniciar sesión para guardar en favoritos.')} */
+                      >
                         <img src={heart} alt=""></img>
                       </div>
                     )}

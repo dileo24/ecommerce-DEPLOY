@@ -81,7 +81,7 @@ const Carrito = () => {
     /* console.log(cart); */
 
     if (!cart.length) return; // manejar mejor la respuesta al intentar comprar con un carrito vacio?
-    fetch("https://ecommerce-deploy-production.up.railway.app/pagosMeli", {
+    fetch("https://sevidor-pf.onrender.com/pagosMeli", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
