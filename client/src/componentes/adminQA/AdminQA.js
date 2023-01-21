@@ -12,7 +12,7 @@ const AdminQA = () => {
 
   useEffect(() => {
     console.log(accessToken);
-    
+
     accessToken &&
       fetch("https://ecommerce-deploy-production.up.railway.app/adminQA", {
         method: "GET",

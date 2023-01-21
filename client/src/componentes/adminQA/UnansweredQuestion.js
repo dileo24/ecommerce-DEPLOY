@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import classes from './UnansweredQuestion.module.css';
-import { NavLink } from 'react-router-dom';
-import defaultImg from '../../img/SupraLogo.jpg';
+import { useState } from "react";
+import classes from "./UnansweredQuestion.module.css";
+import { NavLink } from "react-router-dom";
+import defaultImg from "../../img/SupraLogo.jpg";
 
 const UnansweredQuestion = ({ question, accessToken }) => {
-  const [answer, setAnswer] = useState('');
+  const [answer, setAnswer] = useState("");
   const [didSubmit, setDidSubmit] = useState(false);
   const [didDelete, setDidDelete] = useState(false);
 
@@ -14,10 +14,10 @@ const UnansweredQuestion = ({ question, accessToken }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://ecommerce-deploy-production.up.railway.app/adminQA', {
-      method: 'PUT',
+    fetch("https://ecommerce-deploy-production.up.railway.app/adminQA", {
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify({ questionId: question.questionId, answer }),
@@ -42,13 +42,16 @@ const UnansweredQuestion = ({ question, accessToken }) => {
   const handleDelete = () => {
     setDidDelete(true);
 
-    fetch(`https://ecommerce-deploy-production.up.railway.app/adminQA/${question.questionId}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
+    fetch(
+      `https://ecommerce-deploy-production.up.railway.app/adminQA/${question.questionId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    )
       .then((data) => data.json())
       .then((data) => console.log(data))
       .catch((error) => {
@@ -69,20 +72,20 @@ const UnansweredQuestion = ({ question, accessToken }) => {
   // }
 
   return !question.answer && !didSubmit && !didDelete ? (
-    <div className={classes['admin-question']}>
-      <div className={classes['nombre-imagen']}>
-        <div className={classes['name-delete-container']}>
+    <div className={classes["admin-question"]}>
+      <div className={classes["nombre-imagen"]}>
+        <div className={classes["name-delete-container"]}>
           <NavLink
             to={`details/${question.productId}`}
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: "none" }}
           >
-            <p className={classes['card-name']}>{question.productName}</p>
+            <p className={classes["card-name"]}>{question.productName}</p>
           </NavLink>
           <div>
             <button onClick={handleDelete}>X</button>
           </div>
         </div>
-        <div className={classes['imgProd']}>
+        <div className={classes["imgProd"]}>
           <img
             src={question.productUrl ? question.productUrl : defaultImg}
             alt="nombre del producto"
@@ -108,7 +111,7 @@ const UnansweredQuestion = ({ question, accessToken }) => {
       </form>
     </div>
   ) : (
-    ''
+    ""
   );
 };
 
