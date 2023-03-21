@@ -21,12 +21,15 @@ const FavoriteProduct = ({
 
   const handleDelete = () => {
     // console.log("hello");
-    fetch(`https://ecommerce-deploy-production.up.railway.app/favoritos/${clienteId}/${productoId}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-type': 'application/json',
-      },
-    })
+    fetch(
+      `https://ecommerce-deploy-production-d5e5.up.railway.app/favoritos/${clienteId}/${productoId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    )
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
@@ -47,7 +50,10 @@ const FavoriteProduct = ({
             ></div>
 
             <div className={s.info}>
-              <NavLink to={`/details/${productoId}`} style={{ textDecoration: 'none' }}>
+              <NavLink
+                to={`/details/${productoId}`}
+                style={{ textDecoration: "none" }}
+              >
                 <p className={s.nombre}>{nombre}</p>
                 <p className={s.talle}>Talle: {talla}</p>
               </NavLink>
@@ -64,7 +70,7 @@ const FavoriteProduct = ({
           </div>
         </div>
       ) : (
-        ''
+        ""
       )}
     </>
   );

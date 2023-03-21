@@ -27,7 +27,9 @@ export const ADD_PAGINATE = "ADD_PAGINATE";
 
 export const getProducts = () => {
   return async function (dispatch) {
-    const response = await fetch("https://ecommerce-deploy-production.up.railway.app/products");
+    const response = await fetch(
+      "https://ecommerce-deploy-production-d5e5.up.railway.app/products"
+    );
     // console.log(response);
     const data = await response.json();
     return dispatch({
@@ -39,7 +41,9 @@ export const getProducts = () => {
 
 export const getProducts2 = () => {
   return async function (dispatch) {
-    const response = await fetch("https://ecommerce-deploy-production.up.railway.app/products");
+    const response = await fetch(
+      "https://ecommerce-deploy-production-d5e5.up.railway.app/products"
+    );
     const data = await response.json();
     return dispatch({
       type: GET_PRODUCTS,
@@ -51,7 +55,7 @@ export const getProducts2 = () => {
 export function updateProduct(data, id, accessToken) {
   // necesita token
   return function () {
-    fetch(`https://ecommerce-deploy-production.up.railway.app/${id}`, {
+    fetch(`https://ecommerce-deploy-production-d5e5.up.railway.app/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +71,7 @@ export function postProd(payload, accessToken) {
 
   return async function () {
     const response = await axios.post(
-      "https://ecommerce-deploy-production.up.railway.app/products",
+      "https://ecommerce-deploy-production-d5e5.up.railway.app/products",
       payload,
       {
         headers: {
@@ -82,7 +86,9 @@ export function postProd(payload, accessToken) {
 
 export function getCategorys() {
   return async function (dispatch) {
-    await fetch("https://ecommerce-deploy-production.up.railway.app/category")
+    await fetch(
+      "https://ecommerce-deploy-production-d5e5.up.railway.app/category"
+    )
       .then((response) => response.json())
       .then((data) => dispatch({ type: GET_CATEGORYS, payload: data }));
   };
@@ -90,7 +96,9 @@ export function getCategorys() {
 
 export function getUserInfo() {
   return function (dispatch) {
-    const response = axios.get(`https://ecommerce-deploy-production.up.railway.app/users`);
+    const response = axios.get(
+      `https://ecommerce-deploy-production-d5e5.up.railway.app/users`
+    );
     return dispatch({
       type: GET_USER,
       payload: response.data,
@@ -101,7 +109,7 @@ export function getUserInfo() {
 export function getReviews(id) {
   return async function (dispatch) {
     const response = await axios.get(
-      `https://ecommerce-deploy-production.up.railway.app/compras/reviews/${id}`
+      `https://ecommerce-deploy-production-d5e5.up.railway.app/compras/reviews/${id}`
     );
     return dispatch({
       type: GET_REVIEWS,
@@ -114,7 +122,7 @@ export function importUser(user) {
   // necesita token
 
   return function () {
-    fetch("https://ecommerce-deploy-production.up.railway.app/users", {
+    fetch("https://ecommerce-deploy-production-d5e5.up.railway.app/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -129,7 +137,7 @@ export function postCategory(payload, token) {
 
   return async function () {
     const response = await axios.post(
-      "https://ecommerce-deploy-production.up.railway.app/category",
+      "https://ecommerce-deploy-production-d5e5.up.railway.app/category",
       payload,
       {
         headers: {
@@ -146,12 +154,15 @@ export function deleteCategory(nombre, accessToken) {
   // necesita token
 
   return async function () {
-    await axios.delete(`https://ecommerce-deploy-production.up.railway.app/category/${nombre}`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    await axios.delete(
+      `https://ecommerce-deploy-production-d5e5.up.railway.app/category/${nombre}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
   };
 }
 
@@ -159,12 +170,15 @@ export function deleteProd(id, accessToken) {
   // necesita token
 
   return async function (dispatch) {
-    await axios.delete(`https://ecommerce-deploy-production.up.railway.app/products/${id}`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    await axios.delete(
+      `https://ecommerce-deploy-production-d5e5.up.railway.app/products/${id}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
     return dispatch({
       type: "DELETE_PROD",
       payload: id,
@@ -174,7 +188,9 @@ export function deleteProd(id, accessToken) {
 
 export function getDetails(id) {
   return async function (dispatch) {
-    const response = await axios.get(`https://ecommerce-deploy-production.up.railway.app/products/${id}`);
+    const response = await axios.get(
+      `https://ecommerce-deploy-production-d5e5.up.railway.app/products/${id}`
+    );
     return dispatch({
       type: GET_DETAILS,
       payload: response.data,
@@ -268,7 +284,7 @@ export function clearCart() {
 export function getFavorites(email) {
   return async function (dispatch) {
     const response = await axios.get(
-      `https://ecommerce-deploy-production.up.railway.app/favoritos/${email}`
+      `https://ecommerce-deploy-production-d5e5.up.railway.app/favoritos/${email}`
     );
     return dispatch({
       type: GET_FAVORITES,
@@ -282,7 +298,7 @@ export function addToFavorite(payload) {
 
   return async function () {
     const response = await axios.post(
-      'https://ecommerce-deploy-production.up.railway.app/favoritos',
+      "https://ecommerce-deploy-production-d5e5.up.railway.app/favoritos",
       payload
     );
     return response;
@@ -300,7 +316,7 @@ export function removeFromFavorite(id) {
 
 // export function getCarrito(email) {
 //   return async function (dispatch) {
-//     const response = await axios.get(`https://ecommerce-deploy-production.up.railway.app//carrito/${email}`);
+//     const response = await axios.get(`https://ecommerce-deploy-production-d5e5.up.railway.app//carrito/${email}`);
 //     return dispatch({
 //       type: GET_CARRITO,
 //       payload: response.data,
@@ -310,7 +326,7 @@ export function removeFromFavorite(id) {
 /* 
 export function addToCarrito(payload) {
   return async function () {
-    const response = await axios.post('https://ecommerce-deploy-production.up.railway.app//carrito', payload);
+    const response = await axios.post('https://ecommerce-deploy-production-d5e5.up.railway.app//carrito', payload);
     return response;
   };
 } */

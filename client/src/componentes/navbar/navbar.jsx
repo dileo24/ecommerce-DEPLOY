@@ -43,11 +43,11 @@ const Navbar = ({ setPages }) => {
         const accessToken = await getAccessTokenSilently();
         let decoded = jwt_decode(accessToken);
 
-        if (decoded.permissions.includes('read:admin')) {
+        if (decoded.permissions.includes("read:admin")) {
           // verificación principalmente UX. No brinda seguridad.
           setIsAdmin(true);
         }
-        if (decoded.permissions.includes('read:users')) {
+        if (decoded.permissions.includes("read:users")) {
           setIsSuperAdmin(true);
         }
       }
@@ -62,10 +62,10 @@ const Navbar = ({ setPages }) => {
 
   useEffect(() => {
     user &&
-      fetch('https://ecommerce-deploy-production.up.railway.app/users', {
-        method: 'POST',
+      fetch("https://ecommerce-deploy-production-d5e5.up.railway.app/users", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(user),
       });
@@ -82,7 +82,7 @@ const Navbar = ({ setPages }) => {
           <span className="span"></span>
         </div>
       </div>
-      <div className={`white ${isOpen && 'open'}`}>
+      <div className={`white ${isOpen && "open"}`}>
         <div className={style.filtros}>
           <Filtros setPages={setPages} />
         </div>
@@ -100,7 +100,7 @@ const Navbar = ({ setPages }) => {
                   <div>
                     <Link
                       to="/profile"
-                      style={{ textDecoration: 'none' }}
+                      style={{ textDecoration: "none" }}
                       className={style.button}
                     >
                       Perfil
@@ -136,13 +136,13 @@ const Navbar = ({ setPages }) => {
                         <div className={style.btnAdmin}>
                           <NavLink
                             to="/superAdmin"
-                            style={{ textDecoration: 'none' }}
+                            style={{ textDecoration: "none" }}
                           >
                             <button>Gestionar Permisos de Admin</button>
                           </NavLink>
                         </div>
                       ) : (
-                        ''
+                        ""
                       )}
                     </div>
                   ) : (
@@ -194,13 +194,19 @@ const Navbar = ({ setPages }) => {
               ) : (
                 <>
                   <div className={style.carro}>
-                    <div className={style.btn} onClick={() => loginWithRedirect()}>
+                    <div
+                      className={style.btn}
+                      onClick={() => loginWithRedirect()}
+                    >
                       {carrito.length > 0 && <h6>{carrito.length}</h6>}
                       <img src={shopping} alt=""></img>
                     </div>
                   </div>
                   <div>
-                    <div className={style.btn} onClick={() => loginWithRedirect()}>
+                    <div
+                      className={style.btn}
+                      onClick={() => loginWithRedirect()}
+                    >
                       <img src={heart} alt=""></img>
                     </div>
                   </div>
@@ -210,7 +216,6 @@ const Navbar = ({ setPages }) => {
           )}
         </div>
       </div>
-      
     </div>
   );
 };

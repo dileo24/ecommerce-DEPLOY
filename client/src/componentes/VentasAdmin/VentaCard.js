@@ -53,17 +53,20 @@ const VentaCard = ({ data, accessToken }) => {
       didClick: false,
     }));
 
-    fetch(`https://ecommerce-deploy-production.up.railway.app/compras/adminSales/${data.purchaseId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify({
-        trackingNumber: sent.trackingNumber,
-        clienteEmail: cliente.email,
-      }),
-    })
+    fetch(
+      `https://ecommerce-deploy-production-d5e5.up.railway.app/compras/adminSales/${data.purchaseId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify({
+          trackingNumber: sent.trackingNumber,
+          clienteEmail: cliente.email,
+        }),
+      }
+    )
       .then((data) => data.json())
       .then((data) => {
         if (data.error) return setResponseError({ error: true, msg: data.msg });
