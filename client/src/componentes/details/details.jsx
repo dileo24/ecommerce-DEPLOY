@@ -83,7 +83,7 @@ const Details = () => {
     checkForAdminRole();
     if (user) {
       fetch(
-        `https://ecommerce-deploy-production-d5e5.up.railway.app/favoritos/${user.email}`
+        `https://ecommerce-deploy-production.up.railway.app/favoritos/${user.email}`
       )
         .then((data) => data.json())
         .then((data) => {
@@ -96,7 +96,7 @@ const Details = () => {
 
   const handleDelete = () => {
     fetch(
-      `https://ecommerce-deploy-production-d5e5.up.railway.app/favoritos/${clienteId}/${id}`,
+      `https://ecommerce-deploy-production.up.railway.app/favoritos/${clienteId}/${id}`,
       {
         method: "DELETE",
         headers: {

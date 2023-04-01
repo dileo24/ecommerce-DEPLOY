@@ -35,7 +35,7 @@ const Carrito = () => {
       if (isAuthenticated === true) {
         if (cart.length) {
           const idUsuariodb = await axios.post(
-            "https://ecommerce-deploy-production-d5e5.up.railway.app/compras/obtenerId",
+            "https://ecommerce-deploy-production.up.railway.app/compras/obtenerId",
             {
               User: user.nickname,
             }
@@ -81,7 +81,7 @@ const Carrito = () => {
     /* console.log(cart); */
 
     if (!cart.length) return; // manejar mejor la respuesta al intentar comprar con un carrito vacio?
-    fetch("https://ecommerce-deploy-production-d5e5.up.railway.app/pagosMeli", {
+    fetch("https://ecommerce-deploy-production.up.railway.app/pagosMeli", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -23,7 +23,7 @@ const QAAnsweredQuestions = ({ productId }) => {
     let isSubscribed = true;
 
     fetch(
-      `https://ecommerce-deploy-production-d5e5.up.railway.app/customerQA/${productId}`
+      `https://ecommerce-deploy-production.up.railway.app/customerQA/${productId}`
     )
       .then((data) => data.json())
       .then((data) => {

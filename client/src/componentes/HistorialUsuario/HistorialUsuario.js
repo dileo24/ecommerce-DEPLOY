@@ -14,7 +14,7 @@ const HistorialUsuario = () => {
     const fetchUserId = async () => {
       axios
         .post(
-          "https://ecommerce-deploy-production-d5e5.up.railway.app/compras/obtenerId",
+          "https://ecommerce-deploy-production.up.railway.app/compras/obtenerId",
           {
             User: user.nickname,
           }
@@ -34,7 +34,7 @@ const HistorialUsuario = () => {
 
     const fetchInfo = async (userId) => {
       const respuesta = await axios.post(
-        "https://ecommerce-deploy-production-d5e5.up.railway.app/compras/historial", // deberia enviar el id por parametro, set tipo GET
+        "https://ecommerce-deploy-production.up.railway.app/compras/historial", // deberia enviar el id por parametro, set tipo GET
         {
           clienteId: userId,
         }

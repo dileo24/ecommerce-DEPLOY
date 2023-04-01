@@ -54,7 +54,7 @@ const VentaCard = ({ data, accessToken }) => {
     }));
 
     fetch(
-      `https://ecommerce-deploy-production-d5e5.up.railway.app/compras/adminSales/${data.purchaseId}`,
+      `https://ecommerce-deploy-production.up.railway.app/compras/adminSales/${data.purchaseId}`,
       {
         method: "PUT",
         headers: {

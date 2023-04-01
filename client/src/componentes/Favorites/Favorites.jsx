@@ -16,7 +16,7 @@ const Favorites = () => {
   useEffect(() => {
     if (user && user.hasOwnProperty("email")) {
       fetch(
-        `https://ecommerce-deploy-production-d5e5.up.railway.app/favoritos/${user.email}`
+        `https://ecommerce-deploy-production.up.railway.app/favoritos/${user.email}`
       )
         .then((data) => data.json())
         .then((data) => {

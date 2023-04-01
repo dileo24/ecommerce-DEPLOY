@@ -14,7 +14,7 @@ const UnansweredQuestion = ({ question, accessToken }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("https://ecommerce-deploy-production-d5e5.up.railway.app/adminQA", {
+    fetch("https://ecommerce-deploy-production.up.railway.app/adminQA", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const UnansweredQuestion = ({ question, accessToken }) => {
     setDidDelete(true);
 
     fetch(
-      `https://ecommerce-deploy-production-d5e5.up.railway.app/adminQA/${question.questionId}`,
+      `https://ecommerce-deploy-production.up.railway.app/adminQA/${question.questionId}`,
       {
         method: "DELETE",
         headers: {

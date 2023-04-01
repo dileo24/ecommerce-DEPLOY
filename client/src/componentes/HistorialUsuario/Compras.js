@@ -11,7 +11,7 @@ const Compras = (props) => {
   useEffect(() => {
     if (!clienteId || !productId) return;
     fetch(
-      `https://ecommerce-deploy-production-d5e5.up.railway.app/compras/review-match?clienteId=${clienteId}&productoId=${productId}`
+      `https://ecommerce-deploy-production.up.railway.app/compras/review-match?clienteId=${clienteId}&productoId=${productId}`
     )
       .then((data) => data.json())
       .then((data) => {

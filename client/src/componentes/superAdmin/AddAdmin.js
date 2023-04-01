@@ -3,9 +3,9 @@ import classes from "./AddAdmin.module.css";
 
 const AddAdmin = ({ accessToken, cueParentUpdate, cueHandler }) => {
   const postAdminUrl =
-    "https://ecommerce-deploy-production-d5e5.up.railway.app/superAdmin/addAdminRole";
+    "https://ecommerce-deploy-production.up.railway.app/superAdmin/addAdminRole";
   const getNonAdminsUrl =
-    "https://ecommerce-deploy-production-d5e5.up.railway.app/superAdmin/fetchNonAdmins";
+    "https://ecommerce-deploy-production.up.railway.app/superAdmin/fetchNonAdmins";
   const [nonAdmins, setNonAdmins] = useState([]);
   const [newAdmin, setNewAdmin] = useState({ email: "", idType: "googleId" });
   const [didAdd, setDidAdd] = useState(false);

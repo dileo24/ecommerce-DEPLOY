@@ -34,20 +34,17 @@ const QAForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(
-      "https://ecommerce-deploy-production-d5e5.up.railway.app/customerQA/",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          productId: props.productId,
-          newQuestion: data.newQuestion,
-          email: email ? email : data.email,
-        }),
-      }
-    );
+    fetch("https://ecommerce-deploy-production.up.railway.app/customerQA/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        productId: props.productId,
+        newQuestion: data.newQuestion,
+        email: email ? email : data.email,
+      }),
+    });
     setDidSubmit(true);
     setData((prevState) => ({ ...prevState, newQuestion: "" }));
     data.email.length && setDidSaveEmail(true);

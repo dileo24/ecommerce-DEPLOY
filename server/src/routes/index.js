@@ -71,8 +71,7 @@ router.post(
     let preference = {
       items: itemsArr,
       back_urls: {
-        success:
-          "https://ecommerce-deploy-production-d5e5.up.railway.app/redirect",
+        success: "https://ecommerce-deploy-production.up.railway.app/redirect",
       },
     };
 
@@ -119,14 +118,11 @@ router.get("/redirect", async (req, res) => {
         );
       });
 
-      axios.post(
-        "https://ecommerce-deploy-production-d5e5.up.railway.app/compras",
-        {
-          input: datosDestinatario.input,
-          email: datosDestinatario.email,
-          productos: obj,
-        }
-      );
+      axios.post("https://ecommerce-deploy-production.up.railway.app/compras", {
+        input: datosDestinatario.input,
+        email: datosDestinatario.email,
+        productos: obj,
+      });
       res.redirect("https://suprasports.vercel.app/");
     }
   } catch (error) {

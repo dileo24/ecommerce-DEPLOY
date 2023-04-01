@@ -61,16 +61,13 @@ const ReviewForm = () => {
       return;
     }
 
-    fetch(
-      "https://ecommerce-deploy-production-d5e5.up.railway.app/compras/review",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(postInfo),
-      }
-    )
+    fetch("https://ecommerce-deploy-production.up.railway.app/compras/review", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(postInfo),
+    })
       .then((data) => data.json())
       .then((data) => {
         if (data.error) return setResponseError({ error: true, msg: data.msg });

@@ -22,7 +22,7 @@ const FavoriteProduct = ({
   const handleDelete = () => {
     // console.log("hello");
     fetch(
-      `https://ecommerce-deploy-production-d5e5.up.railway.app/favoritos/${clienteId}/${productoId}`,
+      `https://ecommerce-deploy-production.up.railway.app/favoritos/${clienteId}/${productoId}`,
       {
         method: "DELETE",
         headers: {
